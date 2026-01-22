@@ -69,32 +69,6 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn, onLogout }) => {
           )}
         </div>
       </div>
-
-      {/* Navigation */}
-      <nav className="bg-[#8B0000]">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap">
-            <a href="#" className="text-white hover:bg-[#6B0000] px-4 py-3 transition-colors font-medium">
-              Home
-            </a>
-            <a href="#" className="text-white hover:bg-[#6B0000] px-4 py-3 transition-colors font-medium">
-              About Us
-            </a>
-            <a href="#" className="text-white hover:bg-[#6B0000] px-4 py-3 transition-colors font-medium">
-              Services
-            </a>
-            <a href="#" className="text-white hover:bg-[#6B0000] px-4 py-3 transition-colors font-medium">
-              Downloads
-            </a>
-            <a href="#" className="text-white hover:bg-[#6B0000] px-4 py-3 transition-colors font-medium">
-              Tenders
-            </a>
-            <a href="#" className="text-white hover:bg-[#6B0000] px-4 py-3 transition-colors font-medium">
-              Contact
-            </a>
-          </div>
-        </div>
-      </nav>
     </header>
   );
 };

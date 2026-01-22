@@ -53,9 +53,7 @@ export default function Home() {
                     <p className="text-gray-600 text-sm">You can now access all data management features.</p>
                   </div>
                 )}
-                <button className="border-2 border-white text-white hover:bg-white hover:text-[#8B0000] px-8 py-3 rounded-lg transition-all duration-300 font-semibold">
-                  Learn More
-                </button>
+                
               </div>
             </div>
             <div className="lg:w-2/5 flex justify-center">
