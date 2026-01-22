@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useState } from 'react';
 import { Search } from 'lucide-react';
 import { StudentTable } from '../components/StudentTable';
 import { MOCK_STUDENTS } from '../types';
@@ -13,7 +13,7 @@ export function Home() {
         ? MOCK_STUDENTS.filter(s => s.nic.toLowerCase().includes(searchNic.trim().toLowerCase()))
         : [];
 
-    const handleSearch = (e: FormEvent) => {
+    const handleSearch = (e) => {
         e.preventDefault();
         if (!searchNic.trim()) return;
         setHasSearched(true);

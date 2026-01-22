@@ -1,13 +1,6 @@
 import { LogIn, LogOut } from 'lucide-react';
 
-interface HeaderProps {
-    isAuthenticated: boolean;
-    onLoginClick: () => void;
-    onLogoutClick: () => void;
-    onDashboardClick?: () => void;
-}
-
-export function Header({ isAuthenticated, onLoginClick, onLogoutClick, onDashboardClick }: HeaderProps) {
+export function Header({ isAuthenticated, onLoginClick, onLogoutClick, onDashboardClick }) {
     return (
         <header className="bg-primary text-white shadow-md border-b-4 border-yellow-500">
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">

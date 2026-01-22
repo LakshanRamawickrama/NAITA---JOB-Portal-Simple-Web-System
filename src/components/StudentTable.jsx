@@ -1,10 +1,4 @@
-import type { Student } from '../types';
-
-interface StudentTableProps {
-    students: Student[];
-}
-
-export function StudentTable({ students }: StudentTableProps) {
+export function StudentTable({ students }) {
     if (students.length === 0) {
         return (
             <div className="text-center py-12 bg-white rounded-lg border border-dashed border-gray-300">
@@ -41,9 +35,9 @@ export function StudentTable({ students }: StudentTableProps) {
                                 <td className="px-6 py-4 text-gray-500 whitespace-nowrap">{student.date}</td>
                                 <td className="px-6 py-4 text-center">
                                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${student.completionStatus === 'Completed' ? 'bg-green-100 text-green-700 border border-green-200' :
-                                        student.completionStatus === 'Drop Out' ? 'bg-red-100 text-red-700 border border-red-200' :
-                                            student.completionStatus === 'Following' ? 'bg-blue-100 text-blue-700 border border-blue-200' :
-                                                'bg-yellow-100 text-yellow-700 border border-yellow-200'
+                                            student.completionStatus === 'Drop Out' ? 'bg-red-100 text-red-700 border border-red-200' :
+                                                student.completionStatus === 'Following' ? 'bg-blue-100 text-blue-700 border border-blue-200' :
+                                                    'bg-yellow-100 text-yellow-700 border border-yellow-200'
                                         }`}>
                                         {student.completionStatus}
                                     </span>

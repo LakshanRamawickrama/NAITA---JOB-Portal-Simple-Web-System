@@ -1,13 +1,13 @@
-import { useState, type ChangeEvent } from 'react';
+import { useState } from 'react';
 import { Upload, Check, FileSpreadsheet } from 'lucide-react';
 import { StudentTable } from '../components/StudentTable';
 import { MOCK_STUDENTS } from '../types';
 
 export function Dashboard() {
     const [isUploading, setIsUploading] = useState(false);
-    const [uploadStatus, setUploadStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [uploadStatus, setUploadStatus] = useState('idle');
 
-    const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleFileUpload = (e) => {
         const file = e.target.files?.[0];
         if (file) {
             setIsUploading(true);

@@ -1,14 +1,4 @@
-export interface Student {
-    id: string;
-    name: string;
-    nic: string; // National Identity Card
-    trade: string;
-    nvqLevel: string; // Level 3, 4, etc.
-    completionStatus: "Completed" | "Following" | "Drop Out" | "Pending";
-    date: string; // Date of entry or completion
-}
-
-export const MOCK_STUDENTS: Student[] = [
+export const MOCK_STUDENTS = [
     {
         id: "1",
         name: "A.M. Perera",

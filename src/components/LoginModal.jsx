@@ -1,20 +1,14 @@
-import { useState, type FormEvent } from 'react';
+import { useState } from 'react';
 import { X, Lock, User } from 'lucide-react';
 
-interface LoginModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-    onLogin: () => void;
-}
-
-export function LoginModal({ isOpen, onClose, onLogin }: LoginModalProps) {
+export function LoginModal({ isOpen, onClose, onLogin }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
     if (!isOpen) return null;
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         if (username === 'admin' && password === 'admin') {
             setError('');
