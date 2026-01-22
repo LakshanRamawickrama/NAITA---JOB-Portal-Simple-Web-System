@@ -1,76 +1,55 @@
-import React from 'react';
-import { LogOut, Phone, Mail } from 'lucide-react';
+import { LogIn, LogOut } from 'lucide-react';
 
 interface HeaderProps {
-  isLoggedIn: boolean;
-  onLogout: () => void;
+    isAuthenticated: boolean;
+    onLoginClick: () => void;
+    onLogoutClick: () => void;
+    onDashboardClick?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ isLoggedIn, onLogout }) => {
-  return (
-    <header className="bg-white shadow-md">
-      {/* Top bar */}
-      <div className="bg-[#8B0000] text-white py-2">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center text-sm">
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center">
-                <Phone size={14} className="mr-1" />
-                <span>+94 11 2 123 456</span>
-              </div>
-              <div className="flex items-center">
-                <Mail size={14} className="mr-1" />
-                <span>info@naita.gov.lk</span>
-              </div>
-            </div>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-gray-200">Sitemap</a>
-              <a href="#" className="hover:text-gray-200">Contact</a>
-              <a href="#" className="hover:text-gray-200">FAQ</a>
-            </div>
-          </div>
-        </div>
-      </div>
+export function Header({ isAuthenticated, onLoginClick, onLogoutClick, onDashboardClick }: HeaderProps) {
+    return (
+        <header className="bg-primary text-white shadow-md border-b-4 border-yellow-500">
+            <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div className="flex items-center space-x-3 cursor-pointer" onClick={() => window.location.href = "/"}>
+                    {/* Placeholder Logo */}
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary font-bold text-2xl border-2 border-yellow-500 shadow-sm">
+                        N
+                    </div>
+                    <div className="hidden sm:block">
+                        <h1 className="text-xl font-bold font-sans uppercase tracking-wide">NAITA</h1>
+                        <p className="text-xs text-yellow-100 font-light tracking-wider">National Apprentice and Industrial Training Authority</p>
+                    </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                    {isAuthenticated && (
+                        <button
+                            onClick={onDashboardClick}
+                            className="text-sm font-medium hover:text-yellow-200 transition underline underline-offset-4"
+                        >
+                            Dashboard
+                        </button>
+                    )}
 
-      {/* Main header */}
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
-          <div className="flex items-center space-x-4 mb-4 md:mb-0">
-            <div className="flex items-center space-x-3">
-              <img 
-                src="https://naita.gov.lk/images/naita-logo.png" 
-                alt="NAITA Logo" 
-                className="h-16"
-                onError={(e) => {
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=64&h=64&fit=crop&crop=center";
-                  e.currentTarget.className = "h-12 w-12 rounded-full";
-                }}
-              />
-              <div>
-                <h1 className="text-xl md:text-2xl font-bold text-[#8B0000]">
-                  National Apprentice and Industrial Training Authority
-                </h1>
-                <p className="text-sm text-gray-600">
-                  Ministry of Skills Development and Vocational Training
-                </p>
-              </div>
+                    {isAuthenticated ? (
+                        <button
+                            onClick={onLogoutClick}
+                            className="flex items-center space-x-2 text-sm bg-red-900/50 hover:bg-red-900 border border-red-700 px-4 py-2 rounded transition shadow-sm"
+                        >
+                            <LogOut size={16} />
+                            <span>Logout</span>
+                        </button>
+                    ) : (
+                        <button
+                            onClick={onLoginClick}
+                            className="flex items-center space-x-2 text-sm bg-white text-primary hover:bg-gray-100 border border-gray-200 px-4 py-2 rounded font-semibold transition shadow-sm"
+                        >
+                            <LogIn size={16} />
+                            <span>Staff Login</span>
+                        </button>
+                    )}
+                </div>
             </div>
-          </div>
-          
-          {isLoggedIn && (
-            <button
-              onClick={onLogout}
-              className="flex items-center space-x-2 bg-[#8B0000] hover:bg-[#6B0000] text-white px-4 py-2 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-red-300"
-              aria-label="Logout"
-            >
-              <LogOut size={16} />
-              <span>Logout</span>
-            </button>
-          )}
-        </div>
-      </div>
-    </header>
-  );
-};
-
-export default Header;
+        </header>
+    );
+}
