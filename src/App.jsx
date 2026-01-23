@@ -32,6 +32,7 @@ function App() {
                 onLoginClick={() => setShowLoginModal(true)}
                 onLogoutClick={handleLogout}
                 onDashboardClick={navigateToDashboard}
+                showBackButton={currentPage === 'home'}
             />
 
             <div className="flex-grow flex flex-col">
@@ -50,13 +51,15 @@ function App() {
                 onLogin={handleLogin}
             />
 
-            <footer className="bg-gray-900 text-gray-400 py-8 border-t-4 border-yellow-500 mt-auto">
+            <footer className="bg-primary text-white py-4 border-t-4 border-yellow-500 mt-auto">
                 <div className="container mx-auto px-4 text-center">
-                    <div className="mb-4">
-                        <span className="font-bold text-white text-lg tracking-wider">NAITA</span>
+                    <div className="mb-2">
+                        <a href="https://www.naita.gov.lk/" target="_blank" rel="noopener noreferrer" className="font-bold text-white text-lg tracking-wider hover:text-yellow-500 transition-colors">
+                            NAITA
+                        </a>
                     </div>
-                    <p className="text-sm font-medium text-gray-500">National Apprentice and Industrial Training Authority</p>
-                    <p className="text-xs mt-4 text-gray-600">&copy; {new Date().getFullYear()} Information Systems Division. All Rights Reserved.</p>
+                    <p className="text-sm font-medium text-red-100">National Apprentice and Industrial Training Authority</p>
+                    <p className="text-xs mt-2 text-red-200">&copy; {new Date().getFullYear()} Information Systems Division. All Rights Reserved.</p>
                 </div>
             </footer>
         </div>

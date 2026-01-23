@@ -1,6 +1,6 @@
-import { LogIn, LogOut } from 'lucide-react';
+import { LogIn, LogOut, ArrowLeft } from 'lucide-react';
 
-export function Header({ isAuthenticated, onLoginClick, onLogoutClick, onDashboardClick }) {
+export function Header({ isAuthenticated, onLoginClick, onLogoutClick, onDashboardClick, showBackButton }) {
     return (
         <header className="bg-primary text-white shadow-md border-b-4 border-yellow-500">
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -15,14 +15,20 @@ export function Header({ isAuthenticated, onLoginClick, onLogoutClick, onDashboa
                     </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                    {isAuthenticated && (
-                        <button
-                            onClick={onDashboardClick}
-                            className="text-sm font-medium hover:text-yellow-200 transition underline underline-offset-4"
-                        >
-                            Dashboard
-                        </button>
+                    {showBackButton && (
+                        <>
+                            <a
+                                href="https://www.naita.gov.lk/"
+                                className="flex items-center space-x-2 text-sm bg-red-800/50 hover:bg-red-900 border border-red-700/50 text-white px-3 py-2 rounded transition shadow-sm"
+                            >
+                                <ArrowLeft size={16} />
+                                <span className="hidden md:inline">Back to Main Site</span>
+                                <span className="md:hidden">Back</span>
+                            </a>
+                            <div className="h-6 w-px bg-red-700/50 hidden sm:block"></div>
+                        </>
                     )}
+
 
                     {isAuthenticated ? (
                         <button
